@@ -10,7 +10,16 @@ try {
     d3_style_setProperty.call(this, name, value + "", priority);
   };
 }
-d3 = {version: "2.7.0"}; // semver
+var root = this;
+
+var d3 = {version: "2.7.0"}; // semver
+
+// CommonJS export if available, otherwise add to top level namespace
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = d3;
+} else {
+    root.d3 = d3;
+}
 var d3_array = d3_arraySlice; // conversion for NodeLists
 
 function d3_arrayCopy(pseudoarray) {
