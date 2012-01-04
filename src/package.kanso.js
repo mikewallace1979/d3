@@ -1,5 +1,5 @@
 require("../test/env");
-var d3 = require("../d3");
+require("../d3");
 
 require("util").puts(JSON.stringify({
   "name": "d3",
