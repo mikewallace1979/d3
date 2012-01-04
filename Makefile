@@ -273,4 +273,6 @@ kanso: all
 	mkdir -p $(KANSO_PATH)
 	for js_file in $(JS_FILES);do cp $$js_file $(KANSO_PATH);done
 	cp LICENSE $(KANSO_PATH)
+	cp README.kanso.md $(KANSO_PATH)/README.md
+	cat README.md >> $(KANSO_PATH)/README.md
 	node src/package.kanso.js > $(KANSO_PATH)/kanso.json
