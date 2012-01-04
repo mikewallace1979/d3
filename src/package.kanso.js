@@ -3,7 +3,7 @@ require("../d3");
 
 require("util").puts(JSON.stringify({
   "name": "d3",
-  "version": d3.version + '-kanso-a',
+  "version": d3.version,
   "categories": ["visualization"],
   "maintainers": [
       {
