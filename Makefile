@@ -1,5 +1,6 @@
 # See the README for installation instructions.
 
+KANSO_PATH ?= ./kanso
 NODE_PATH ?= ./node_modules
 JS_COMPILER = $(NODE_PATH)/uglify-js/bin/uglifyjs
 JS_TESTER = $(NODE_PATH)/vows/bin/vows
@@ -271,3 +272,12 @@ package.json: d3.js src/package.js
 
 clean:
 	rm -f d3*.js
+	rm -rf $(KANSO_PATH)
+
+kanso: all
+	mkdir -p $(KANSO_PATH)
+	for js_file in $(JS_FILES);do cp $$js_file $(KANSO_PATH);done
+	cp LICENSE $(KANSO_PATH)
+	cp README.kanso.md $(KANSO_PATH)/README.md
+	cat README.md >> $(KANSO_PATH)/README.md
+	node src/package.kanso.js > $(KANSO_PATH)/kanso.json
